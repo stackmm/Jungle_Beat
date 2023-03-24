@@ -10,9 +10,6 @@ class LinkedList
   end
 
   def count
-    if self.is_empty?
-      0
-    else
       count = 1
       node = @head
       while (node = node.next_node)
@@ -20,16 +17,14 @@ class LinkedList
         count +=1
       end
       count
-    end
   end
 
   def to_string
-    node = @head
-    p node
-
-    while (node = node.next_node)
-      p node
-    end
+    p @head.data
+    # node = @head
+    # while (node.next_node != nil)
+    #   p node.data
+    # end
   end
 
 end
