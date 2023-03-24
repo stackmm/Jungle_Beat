@@ -41,7 +41,14 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.next_node).to eq(nil)
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
-    require "pry"; binding.pry
+  end
+
+  it "can prepend nodes to the beginning of the list" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    # require "pry"; binding.pry
   end
 
 end
