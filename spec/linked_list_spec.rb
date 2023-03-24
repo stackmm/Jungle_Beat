@@ -123,7 +123,28 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("deep")
     expect(list.count).to eq(0)
     expect(list.to_string).to eq("")
-    # require "pry"; binding.pry
   end
 
+  it "can check if a supplied value is in the list" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    expect(list.includes?("deep")).to be true
+    expect(list.includes?("dep")).to be false
+    expect(list.includes?("woo")).to be true
+    expect(list.includes?("wow")).to be false
+    expect(list.includes?("shu")).to be true
+    expect(list.includes?("blop")).to be true
+    expect(list.includes?("")).to be false
+    expect(list.includes?("deep woo shi shu blop")).to be false
+    list.pop
+    expect(list.includes?("blop")).to be false
+    list.append("blop")
+    expect(list.includes?("blop")).to be true
+  end
+  
+  # require "pry"; binding.pry
 end

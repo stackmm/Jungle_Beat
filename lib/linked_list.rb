@@ -101,4 +101,14 @@ class LinkedList
     results.join(" ")
   end
 
+  def includes?(data)
+    current_node = @head
+
+    while (current_node != nil)
+      return true if current_node.data == data
+      current_node = current_node.next_node
+    end
+    false
+  end
+
 end
