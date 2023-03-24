@@ -45,7 +45,7 @@ class LinkedList
       current_node = @head
       while (current_node.next_node != nil)
         current_node = current_node.next_node
-        count +=1
+        count += 1
       end
       count
   end
