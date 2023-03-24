@@ -22,6 +22,23 @@ class LinkedList
     @head = new_node
   end
 
+  def pop
+    current_node = @head
+    if current_node == nil
+      nil
+    elsif current_node.next_node == nil
+      node_to_pop = current_node
+      @head = nil
+    else
+      while (current_node.next_node.next_node != nil)
+        current_node = current_node.next_node
+      end
+      node_to_pop = current_node.next_node
+      current_node.next_node = nil
+    end
+    node_to_pop.data
+  end
+
   def insert(position, data)
     if @head == nil
       @head = Node.new(data)
@@ -40,10 +57,36 @@ class LinkedList
     end
   end
 
+  def count
+    if @head == nil
+      0
+    else
+      count = 1
+      current_node = @head
+      while (current_node.next_node != nil)
+        current_node = current_node.next_node
+        count += 1
+      end
+      count
+    end
+  end
+
+  def to_string
+    if @head == nil
+      ""
+    else
+      strings = [@head.data]
+      current_node = @head
+      while (current_node = current_node.next_node)
+        strings << current_node.data
+      end
+      strings.join(" ")
+    end
+  end
+
   def find(position, num_elements)
     current_node = @head
     count = 0
-
     while (current_node != nil && count < position)
       current_node = current_node.next_node
       count += 1
@@ -56,25 +99,6 @@ class LinkedList
       num_elements -= 1
     end
     results.join(" ")
-  end
-
-  def count
-      count = 1
-      current_node = @head
-      while (current_node.next_node != nil)
-        current_node = current_node.next_node
-        count += 1
-      end
-      count
-  end
-
-  def to_string
-    strings = [@head.data]
-    current_node = @head
-    while (current_node = current_node.next_node)
-      strings << current_node.data
-    end
-    strings.join(" ")
   end
 
 end

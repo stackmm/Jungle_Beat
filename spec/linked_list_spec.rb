@@ -83,7 +83,47 @@ RSpec.describe LinkedList do
     list3.append("meow")
     expect(list3.count).to eq(3)
     expect(list3.to_string).to eq("vroom boom meow")
-    require "pry"; binding.pry
+  end
+
+  it "can find a position in the list and return a certain number of elements" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    expect(list.find(2,1)).to eq("shi")
+    expect(list.find(1,3)).to eq("woo shi shu")
+    expect(list.find(0,0)).to eq("")
+    expect(list.find(0,3)).to eq("deep woo shi")
+    expect(list.find(0,5)).to eq("deep woo shi shu blop")
+    expect(list.find(4,1)).to eq("blop")
+    expect(list.find(4,0)).to eq("")
+  end
+
+  it "can pop(remove) an element from the end of the list" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    expect(list.pop).to eq("blop")
+    expect(list.count).to eq(4)
+    expect(list.to_string).to eq("deep woo shi shu")
+    expect(list.pop).to eq("shu")
+    expect(list.count).to eq(3)
+    expect(list.to_string).to eq("deep woo shi")
+    expect(list.pop).to eq("shi")
+    expect(list.count).to eq(2)
+    expect(list.to_string).to eq("deep woo")
+    expect(list.pop).to eq("woo")
+    expect(list.count).to eq(1)
+    expect(list.to_string).to eq("deep")
+    expect(list.pop).to eq("deep")
+    expect(list.count).to eq(0)
+    expect(list.to_string).to eq("")
+    # require "pry"; binding.pry
   end
 
 end
