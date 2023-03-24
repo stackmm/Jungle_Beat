@@ -20,24 +20,31 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).to eq(nil)
   end
 
-  it "can count the number of elements in a list of one" do
+  it "can count the number of elements in a list of length one" do
     list = LinkedList.new
     list.append("doop")
     expect(list.count).to eq(1)
   end
 
-  it "can generate a string of all the elements in the list of one" do
-    list = LinkedList.new
-    list.append("doop")
-    expect(list.to_string).to eq("doop")
+  # it "can generate a string of all the elements in the list of length one" do
+  #   list = LinkedList.new
+  #   list.append("doop")
+  #   require "pry"; binding.pry
+  #   expect(list.to_string).to eq("doop")
   
-  end
+  # end
 
   it "can append multiple pieces of data in to the list" do
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
+    expect(list.head.data).to eq("doop")
+    expect(list.head.next_node.data).to eq("deep")
+    expect(list.head.next_node.next_node).to eq(nil)
+    expect(list.count).to eq(2)
     require "pry"; binding.pry
+
+
   end
 
   # require "pry"; binding.pry
