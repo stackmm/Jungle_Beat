@@ -40,6 +40,24 @@ class LinkedList
     end
   end
 
+  def find(position, num_elements)
+    current_node = @head
+    count = 0
+
+    while (current_node != nil && count < position)
+      current_node = current_node.next_node
+      count += 1
+    end
+
+    results = []
+    while (current_node != nil && num_elements > 0)
+      results << current_node.data
+      current_node = current_node.next_node
+      num_elements -= 1
+    end
+    results.join(" ")
+  end
+
   def count
       count = 1
       current_node = @head

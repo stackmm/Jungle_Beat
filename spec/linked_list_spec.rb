@@ -83,7 +83,7 @@ RSpec.describe LinkedList do
     list3.append("meow")
     expect(list3.count).to eq(3)
     expect(list3.to_string).to eq("vroom boom meow")
-    # require "pry"; binding.pry
+    require "pry"; binding.pry
   end
 
 end
