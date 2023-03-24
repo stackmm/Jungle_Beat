@@ -32,7 +32,7 @@ class LinkedList
     while (current_node = current_node.next_node)
       strings << current_node.data
     end
-    puts strings.join(" ")
+    strings.join(" ")
   end
 
 end

@@ -26,13 +26,11 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(1)
   end
 
-  # it "can generate a string of all the elements in the list of length one" do
-  #   list = LinkedList.new
-  #   list.append("doop")
-  #   require "pry"; binding.pry
-  #   expect(list.to_string).to eq("doop")
-  
-  # end
+  it "can generate a string of all the elements in the list of length one" do
+    list = LinkedList.new
+    list.append("doop")
+    expect(list.to_string).to eq("doop")
+  end
 
   it "can append multiple pieces of data in to the list" do
     list = LinkedList.new
@@ -42,10 +40,8 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.data).to eq("deep")
     expect(list.head.next_node.next_node).to eq(nil)
     expect(list.count).to eq(2)
+    expect(list.to_string).to eq("doop deep")
     require "pry"; binding.pry
-
-
   end
 
-  # require "pry"; binding.pry
 end
