@@ -48,7 +48,29 @@ RSpec.describe LinkedList do
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
-    # require "pry"; binding.pry
+    expect(list.count).to eq(3)
+    expect(list.to_string).to eq("dop plop suu")
+  end
+
+  it "can insert one or more elements at a given position in the list" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.count).to eq(4)
+    expect(list.to_string).to eq("dop woo plop suu")
+
+    list2 = LinkedList.new
+    list2.append("beep")
+    list2.insert(1, "boop")
+    expect(list2.count).to eq(2)
+    expect(list2.to_string).to eq("beep boop")
+    list2.insert(0, "meow")
+    expect(list2.to_string).to eq("meow beep boop")
+    list2.insert(3, "moop")
+    expect(list2.to_string).to eq("meow beep boop moop")
+    require "pry"; binding.pry
   end
 
 end
