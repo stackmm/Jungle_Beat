@@ -42,5 +42,13 @@ RSpec.describe JungleBeat do
     expect(jb2.list.find(0,2)).to eq("meow meow")
   end
 
+  it "can count the number of elements in the list from the jungle_beat class" do
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    expect(jb.count).to eq(3)
+    jb.append("woo hoo shu")
+    expect(jb.count).to eq(6)
+  end
+
   # require "pry"; binding.pry
 end
