@@ -6,10 +6,22 @@ class JungleBeat
   end
 
   def append(strings)
+    valid_beats = ["bah", "beep", "boom", "boop", "blop", "dee",
+                  "deep", "ditt", "doo", "dop", "doop", "hoo", "hu",
+                  "la", "lala", "moop", "meow", "na", "plop", "shi", 
+                  "shu", "suu", "tee", "vroom", "wee", "woo", "wow"]
+    validated_strings = []
+    
     strings_array = strings.downcase.split(' ')
-
+    
     strings_array.each do |string|
-      @list.append(string)
+      if valid_beats.include?(string)
+        validated_strings << string
+      end
+    end
+
+    validated_strings.each do |valid_string|
+      @list.append(valid_string)
     end
   end
 
@@ -21,5 +33,5 @@ class JungleBeat
     beats = @list.to_string
     `say -r 500 -v Boing #{beats}`
   end
-
+  
 end
