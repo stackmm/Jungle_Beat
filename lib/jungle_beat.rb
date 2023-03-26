@@ -1,11 +1,17 @@
 class JungleBeat
   attr_reader :list, :rate, :voice
-  attr_accessor :rate, :voice
+  attr_accessor :list, :rate, :voice
 
-  def initialize()
+  def initialize(data = nil)
     @list = LinkedList.new
+    @data = data
     @rate = 500
     @voice = "Boing"
+
+    # allows for initialization with a given string argument
+    if @data && !@data.empty?
+      self.append(data)
+    end
   end
 
   def append(strings)

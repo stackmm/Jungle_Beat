@@ -42,6 +42,31 @@ RSpec.describe JungleBeat do
     expect(jb2.list.find(0,2)).to eq("meow meow")
   end
 
+  it "can create multiple nodes from a string argument on initilization" do
+    jb = JungleBeat.new("deep dop dop deep")
+    expect(jb.list.to_string).to eq("deep dop dop deep")
+    expect(jb.count).to eq(4)
+    jb.append("   BAH xzxz 1")
+    expect(jb.list.to_string).to eq("deep dop dop deep bah")
+    expect(jb.count).to eq(5)
+
+    jb2 = JungleBeat.new("moop")
+    expect(jb2.list.to_string).to eq("moop")
+    expect(jb2.count).to eq(1)
+
+    jb3 = JungleBeat.new("")
+    expect(jb3.list.to_string).to eq("")
+    expect(jb3.count).to eq(0)
+
+    jb4 = JungleBeat.new("        ")
+    expect(jb4.list.to_string).to eq("")
+    expect(jb4.count).to eq(0)
+
+    jb5 = JungleBeat.new()
+    expect(jb5.list.to_string).to eq("")
+    expect(jb5.count).to eq(0)
+  end
+
   it "can count the number of elements in the list from the jungle_beat class" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
