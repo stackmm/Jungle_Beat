@@ -8,8 +8,7 @@ class JungleBeat
     @rate = 500
     @voice = "Boing"
 
-    # allows for initialization with a given string argument
-    if @data && !@data.empty?
+    if @data && !@data.empty? # allows for initialization with a given string argument
       self.append(data)
     end
   end
