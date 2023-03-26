@@ -62,5 +62,19 @@ RSpec.describe JungleBeat do
     expect(jb.count).to eq(6)
   end
 
+  it "can change the rate and reset it back to the default value" do 
+    jb = JungleBeat.new
+    jb.append("deep dop dop deep")
+    expect(jb.rate).to eq(500)
+    jb.rate = 100
+    expect(jb.rate).to eq(100)
+    jb.rate = 101
+    expect(jb.rate).to eq(101)
+    jb.reset_rate
+    expect(jb.rate).to eq(500)
+    jb.rate = 0
+    expect(jb.rate).to eq(0)
+  end
+
   # require "pry"; binding.pry
 end
