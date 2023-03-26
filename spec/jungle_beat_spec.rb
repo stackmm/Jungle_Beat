@@ -76,5 +76,15 @@ RSpec.describe JungleBeat do
     expect(jb.rate).to eq(0)
   end
 
+  it "can change the voice and reset it back to the default value" do
+    jb = JungleBeat.new
+    jb.append("deep dop dop deep")
+    expect(jb.voice).to eq("Boing")
+    jb.voice = "Daniel"
+    expect(jb.voice).to eq("Daniel")
+    jb.reset_voice
+    expect(jb.voice).to eq("Boing")
+  end
+
   # require "pry"; binding.pry
 end
