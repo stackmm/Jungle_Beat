@@ -10,8 +10,18 @@ RSpec.describe Node do
   it "has readable attributes" do
     node = Node.new("plop")
     expect(node.data).to eq("plop")
-    expect(node.next_node).to eq(nil)
-  end
+    expect(node.next_node).to be_nil
+    
+    node2 = Node.new("")
+    expect(node2.data).to eq("")
+    expect(node2.next_node).to be_nil
 
-  # require "pry"; binding.pry
+    node3 = Node.new(-3)
+    expect(node3.data).to eq(-3)
+    expect(node3.next_node).to be_nil
+
+    node4 = Node.new(false)
+    expect(node4.data).to be false
+    expect(node4.next_node).to be_nil
+  end
 end
