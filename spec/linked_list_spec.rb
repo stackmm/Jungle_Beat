@@ -37,6 +37,13 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     list.append("doop")
     expect(list.count).to eq(1)
+    list.append("beep")
+    expect(list.count).to eq(2)
+    list.append("")
+    expect(list.head.next_node.next_node.data).to eq("")
+    expect(list.count).to eq(3)
+    list.append(true)
+    expect(list.count).to eq(4)
   end
 
   it "can generate a string of all the elements in the list" do
