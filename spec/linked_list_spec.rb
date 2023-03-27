@@ -46,22 +46,31 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(4)
   end
 
-  it "can generate a string of all the elements in the list" do
+  it "can generate a string of all the elements in a list" do
     list = LinkedList.new
     list.append("doop")
     expect(list.to_string).to eq("doop")
+    list.append(1)
+    expect(list.to_string).to eq("doop 1")
+    list.insert(1, "boom")
+    expect(list.to_string).to eq("doop boom 1")
+    list.prepend(" ")
+    expect(list.to_string).to eq("  doop boom 1")
+    list.pop
+    expect(list.to_string).to eq("  doop boom")
   end
 
-  it "can prepend nodes to the beginning of the list" do
+  it "can prepend nodes to a list" do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
     expect(list.count).to eq(3)
     expect(list.to_string).to eq("dop plop suu")
+    list.prepend(4)
   end
 
-  it "can insert one or more elements at a given position in the list" do
+  it "can insert one or more elements at a given position in a list" do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
