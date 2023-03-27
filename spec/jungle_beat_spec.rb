@@ -65,6 +65,10 @@ RSpec.describe JungleBeat do
     jb5 = JungleBeat.new()
     expect(jb5.list.to_string).to eq("")
     expect(jb5.count).to eq(0)
+
+    jb6 = JungleBeat.new("1    2 3")
+    expect(jb6.list.to_string).to eq("")
+    expect(jb6.count).to eq(0)
   end
 
   it "can count the number of elements in a list from the JungleBeat class" do
@@ -105,6 +109,9 @@ RSpec.describe JungleBeat do
     expect(jb.rate).to eq(500)
     jb.rate = 0
     expect(jb.rate).to eq(0)
+    jb.reset_rate
+    jb.reset_rate
+    expect(jb.rate).to eq(500)
   end
 
   it "can change the voice and reset it back to the default value" do
@@ -114,6 +121,8 @@ RSpec.describe JungleBeat do
     jb.voice = "Daniel"
     expect(jb.voice).to eq("Daniel")
     jb.reset_voice
+    expect(jb.voice).to eq("Boing")
+    jb.reset_rate
     expect(jb.voice).to eq("Boing")
   end
 end
