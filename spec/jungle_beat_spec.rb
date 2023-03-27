@@ -88,6 +88,9 @@ RSpec.describe JungleBeat do
 
     jb2 = JungleBeat.new("  BAH b00m 12  doo  ")
     expect(jb2.list.to_string).to eq("bah doo")
+    jb.append("TRUE")
+    expect(jb2.list.to_string).to eq("bah doo")
+
   end
 
   it "can change the rate and reset it back to the default value" do 
@@ -113,5 +116,4 @@ RSpec.describe JungleBeat do
     jb.reset_voice
     expect(jb.voice).to eq("Boing")
   end
-  # require "pry"; binding.pry
 end
