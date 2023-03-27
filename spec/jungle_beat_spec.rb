@@ -90,7 +90,6 @@ RSpec.describe JungleBeat do
     expect(jb2.list.to_string).to eq("bah doo")
     jb.append("TRUE")
     expect(jb2.list.to_string).to eq("bah doo")
-
   end
 
   it "can change the rate and reset it back to the default value" do 

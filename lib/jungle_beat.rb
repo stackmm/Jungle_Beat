@@ -22,7 +22,7 @@ class JungleBeat
     validated_strings = []
     
     strings_array = strings.downcase.split(' ')
-    
+
     strings_array.each do |string|
       if valid_beats.include?(string)
         validated_strings << string
