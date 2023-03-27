@@ -10,21 +10,27 @@ RSpec.describe LinkedList do
 
   it "has readable attributes" do
     list = LinkedList.new
-    expect(list.head).to eq(nil)
+    expect(list.head).to be_nil
   end
 
-  it "can append data to the list" do
+  it "can append data to a list" do
     list = LinkedList.new
     list.append("doop")
     expect(list.head.data).to eq("doop")
-    expect(list.head.next_node).to eq(nil)
+    expect(list.head.next_node).to be_nil
 
     list.append("deep")
     expect(list.head.data).to eq("doop")
     expect(list.head.next_node.data).to eq("deep")
-    expect(list.head.next_node.next_node).to eq(nil)
+    expect(list.head.next_node.next_node).to be_nil
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
+
+    list.append(false)
+    expect(list.head.next_node.next_node.data).to be false
+    expect(list.head.next_node.next_node.next_node).to be_nil
+    expect(list.count).to eq(3)
+    expect(list.to_string).to eq("doop deep false")
   end
 
   it "can count the number of elements in a list" do
