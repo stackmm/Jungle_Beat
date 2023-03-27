@@ -110,7 +110,7 @@ RSpec.describe LinkedList do
     expect(list3.to_string).to eq("vroom boom meow")
   end
 
-  it "can find a position in the list and return a certain number of elements" do
+  it "can find a position in a list and return a certain number of elements" do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -133,7 +133,7 @@ RSpec.describe LinkedList do
     expect(list2.find(0,2)).to eq(" true")
   end
 
-  it "can pop(remove) an element from the end of the list" do
+  it "can pop an element from the end of a list" do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -157,7 +157,7 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("")
   end
 
-  it "can check if a supplied value is in the list" do
+  it "can see if a given value is in a list" do
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -178,5 +178,4 @@ RSpec.describe LinkedList do
     expect(list.includes?("blop")).to be true
   end
   
-  # require "pry"; binding.pry
 end

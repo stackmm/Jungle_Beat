@@ -67,7 +67,7 @@ RSpec.describe JungleBeat do
     expect(jb5.count).to eq(0)
   end
 
-  it "can count the number of elements in the list from the jungle_beat class" do
+  it "can count the number of elements in a list from the JungleBeat class" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     expect(jb.count).to eq(3)
@@ -75,7 +75,7 @@ RSpec.describe JungleBeat do
     expect(jb.count).to eq(6)
   end
 
-  it "can validate that input beats before appending" do
+  it "can validate that input strings are appropriate beats before appending" do
     jb = JungleBeat.new
     jb.append("doom deep doo ditt boom BLAH mEOw 24 te")
     expect(jb.list.to_string).to eq("deep doo ditt boom meow")
@@ -85,6 +85,9 @@ RSpec.describe JungleBeat do
     jb.append("    SUUU sU    Suu   ")
     expect(jb.list.to_string).to eq("deep doo ditt boom meow suu")
     expect(jb.count).to eq(6)
+
+    jb2 = JungleBeat.new("  BAH b00m 12  doo  ")
+    expect(jb2.list.to_string).to eq("bah doo")
   end
 
   it "can change the rate and reset it back to the default value" do 
@@ -110,6 +113,5 @@ RSpec.describe JungleBeat do
     jb.reset_voice
     expect(jb.voice).to eq("Boing")
   end
-
   # require "pry"; binding.pry
 end
