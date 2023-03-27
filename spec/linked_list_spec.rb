@@ -124,6 +124,13 @@ RSpec.describe LinkedList do
     expect(list.find(0,5)).to eq("deep woo shi shu blop")
     expect(list.find(4,1)).to eq("blop")
     expect(list.find(4,0)).to eq("")
+
+    list2 = LinkedList.new
+    list2.append("")
+    expect(list2.find(0,1)).to eq("")
+    list2.append(true)
+    expect(list2.find(1,1)).to eq("true")
+    expect(list2.find(0,2)).to eq(" true")
   end
 
   it "can pop(remove) an element from the end of the list" do
